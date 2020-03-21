@@ -11,8 +11,8 @@ public class Particle extends Actor {
 
     public Particle() {
         this.setImage("imgs/particle_0.png");
-        this.velocity = 1.0D;
-        this.acceleration = 0.25D;
+        this.velocity = (Math.random()*3)+1;
+        this.acceleration = 0.05D;
         this.imageColor = 0;
         this.oldColor = 0;
         this.timer = 0;
@@ -21,7 +21,7 @@ public class Particle extends Actor {
 
     public void act() {
         this.distance = Math.sqrt(Math.pow((double)(500 - this.getX()), 2.0D) + Math.pow((double)(500 - this.getY()), 2.0D));
-        this.turnTowards(500, 500);
+        this.turnTowards(750, 250);
         this.move(-((int)this.velocity));
         this.velocity += this.acceleration * this.distance / 15.0D;
         if (this.getX() < 0 || this.getX() > 1000 || this.getY() < 0 || this.getY() > 1000) {
